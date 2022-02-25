@@ -19,7 +19,6 @@ var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "=", 
 function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
-  
     passwordText.value = password;
 };
 
@@ -81,7 +80,19 @@ function generatePassword() {
    else if(confirmNumbers && confirmSpecialCharacters) {
        userInput = numbers.concat(specialCharacters);
    } // 1 choice is picked
-  
+  else if(confirmLowercase) {
+      userInput = lowercase;
+  }
+  else if(confirmUppercase) {
+      userInput = uppercase;
+  }
+  else if(confirmNumbers) {
+      userInput = numbers;
+  }
+  else if(confirmSpecialCharacters) {
+      userInput = specialCharacters;
+      console.log(userInput);
+  }
    
  }
 
