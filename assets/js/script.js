@@ -7,6 +7,7 @@ var confirmLowercase;
 var confirmUppercase;
 var confirmNumbers;
 var confirmSpecialCharacters;
+var userInput;
 
 // form input variable values
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -26,17 +27,18 @@ function writePassword() {
       alert("Please keep password between 8-128 characters!");
   }
   else {
-      var confirmLowerCase = confirm("Include lowercase letters?");
+      var confirmLowercase = confirm("Include lowercase letters?");
       var confirmUppercase = confirm("Include uppercase letters?");
       var confirmNumbers = confirm("Include Numbers?");
       var confirmSpecialCharacters = confirm("Include special characters?");
-  } 
-  while(enterPasswordLength && !confirmLowercase && !confirmUppercase && !confirmNumbers && !confirmSpecialCharacters) {
+  };
+  
+   while(!confirmLowercase && !confirmUppercase && !confirmNumbers && !confirmSpecialCharacters) {
       alert("Please choose at least one character type.");
 
-  return enterPasswordLength; 
+   return enterPasswordLength; 
 
-};
+   };
 
   
    
