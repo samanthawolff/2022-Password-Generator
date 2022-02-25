@@ -15,8 +15,17 @@ var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "=", "[", "]", "{", "}", ";", ":", "|", "<", ">", "?"]; 
 
-// Write password to the #password input
+
 function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+  
+    passwordText.value = password;
+};
+
+
+// Write password to the #password input
+function generatePassword() {
 
   var enterPasswordLength = window.prompt("How long would you like your password to be? Choose between 8 and 128 characters.");  
 
@@ -32,24 +41,33 @@ function writePassword() {
       var confirmNumbers = confirm("Include Numbers?");
       var confirmSpecialCharacters = confirm("Include special characters?");
   };
-  
-   while(!confirmLowercase && !confirmUppercase && !confirmNumbers && !confirmSpecialCharacters) {
-      alert("Please choose at least one character type.");
-
-   return enterPasswordLength; 
-
-   };
-
+   // all four choices are picked/not picked
+   if(!confirmLowercase && !confirmUppercase && !confirmNumbers && !confirmSpecialCharacters) {
+      userInput = alert("Please choose at least one character type.");
+   }
+   else if(confirmLowercase && confirmUppercase && confirmNumbers && confirmSpecialCharacters) {
+       userInput = lowercase.concat(uppercase, numbers, specialCharacters);
+       console.log(userInput);
+   } // 3 choices are picked
+   else if(confirmLowercase && confirmUppercase && confirmNumbers) {
+       userInput = lowercase.concat(uppercase, numbers);
+   }
+   else if(confirmLowercase && confirmUppercase && confirmSpecialCharacters) {
+       userInput = lowercase.concat(uppercase, specialCharacters);
+   }
+   else if(confirmLowercase && confirmNumbers && confirmSpecialCharacters) {
+       userInput = lowercase.concat(numbers, specialCharacters);
+   }
+   else if(confirmUppercase && confirmNumbers && confirmSpecialCharacters) {
+       userInput = uppercase.concat(numbers, specialCharacters);
+       console.log(userInput);
+   } // 2 choices are picked
+   
   
    
- 
- 
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+ }
 
-  passwordText.value = password;
 
-}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
