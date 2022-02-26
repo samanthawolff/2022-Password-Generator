@@ -39,7 +39,7 @@ function generatePassword() {
       var confirmUppercase = confirm("Include uppercase letters?");
       var confirmNumbers = confirm("Include Numbers?");
       var confirmSpecialCharacters = confirm("Include special characters?");
-  };
+   };
    // all four choices are picked/not picked
    if(!confirmLowercase && !confirmUppercase && !confirmNumbers && !confirmSpecialCharacters) {
       userInput = alert("Please choose at least one character type.");
@@ -93,8 +93,7 @@ function generatePassword() {
       userInput = specialCharacters;
       console.log(userInput);
   }
-   
- }
+ };
 
 
 
