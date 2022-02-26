@@ -16,6 +16,7 @@ var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "=", "[", "]", "{", "}", ";", ":", "|", "<", ">", "?"]; 
 
 
+// Write password to the #password input
 function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
@@ -24,17 +25,19 @@ function writePassword() {
 };
 
 
-// Write password to the #password input
+// generate password function
 function generatePassword() {
 
   var enterPasswordLength = window.prompt("How long would you like your password to be? Choose between 8 and 128 characters.");  
 
+
+  // alerts if password length prompt is empty/incorrect
   if (!enterPasswordLength) {
       alert("Please enter password length.");
   }
   else if(enterPasswordLength < 8 || enterPasswordLength > 128) {
       alert("Please keep password between 8-128 characters!");
-  }
+  } // Character choices are confirmed
   else {
       var confirmLowercase = confirm("Include lowercase letters?");
       var confirmUppercase = confirm("Include uppercase letters?");
@@ -97,11 +100,13 @@ function generatePassword() {
 
   var passLength = [];
 
+  //randomization of userInput
   for (var i = 0; i < enterPasswordLength; i++) {
       var inputChoices = userInput[Math.floor(Math.random() * userInput.length)];
       passLength.push(inputChoices);
   }
 
+  
   var password = passLength.join("");
   return password;
 
