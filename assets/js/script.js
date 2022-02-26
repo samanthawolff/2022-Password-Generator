@@ -19,6 +19,7 @@ var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "=", 
 function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
+
     passwordText.value = password;
 };
 
@@ -93,6 +94,17 @@ function generatePassword() {
       userInput = specialCharacters;
       console.log(userInput);
   }
+
+  var passLength = [];
+
+  for (var i = 0; i < enterPasswordLength; i++) {
+      var inputChoices = userInput[Math.floor(Math.random() * userInput.length)];
+      passLength.push(inputChoices);
+  }
+
+  var password = passLength.join("");
+  return password;
+
  };
 
 
