@@ -11,3 +11,4 @@ In this project I was assigned the task of building a password generator. All of
 * w3schools for solidifiying the meaning of keywords used in this project. 
 ## Visit live website:
 In need of a new and secure password? Please, feel inclined to get it here!
+https://samanthawolff.github.io/2022-Password-Generator/
